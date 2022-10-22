@@ -5,7 +5,7 @@ import StatsContainer from './StatsContainer';
 import { Route, Routes } from 'react-router-dom';
 
 const MainContainer = () => {
-  const [gameMode, setGameMode] = useState('mainPage');
+  const [gameMode, setGameMode] = useState('reactionTime');
   return (
     <div className="MainContainer">
       <Routes>

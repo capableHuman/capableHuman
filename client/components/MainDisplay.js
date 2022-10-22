@@ -6,11 +6,17 @@ import ReactionTimeGame from './ReactionTimeGame';
 
 const MainDisplay = ({ gameMode, setGameMode }) => {
   const [reactionTimeScore, setReactionTimeScore] = useState(0);
+  const [gameStarted, setGameStarted] = useState(false);
 
   if (gameMode === 'reactionTime') {
     return (
       <>
-        <ReactionTimeGame />
+        <ReactionTimeGame
+          reactionTimeScore={reactionTimeScore}
+          setReactionTimeScore={setReactionTimeScore}
+          gameStarted={gameStarted}
+          setGameStarted={setGameStarted}
+        />
       </>
     );
   } else
