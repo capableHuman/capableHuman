@@ -10,7 +10,11 @@ capableHumanController.createUser = async (req, res, next) => {
   
   //querying for the last row, then creating a variable to store the id from that row
   const idObj = await db.query(queryUserId);
-  let id = idObj['rows'][0]['_id'];
+  if (idObj['rows'].length > 0) {
+    let id = idObj['rows'][0]['_id'];
+  } else {
+    id = 0;
+  }
 
   //Hashing password
   const salt = await bcrypt.genSalt(10);
