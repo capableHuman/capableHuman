@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
+import MainContainer from './components/MainContainer';
 
 const server = axios.create({
   baseURL: 'http://localhost:3000/',
@@ -25,8 +26,7 @@ const handleClick = (e) => {
 const App = () => {
   return (
     <div>
-      <>App Component</>
-      <button onClick={handleClick}></button>
+      <MainContainer />
     </div>
   );
 };
