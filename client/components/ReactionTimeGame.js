@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useTimer } from 'react';
 
 const ReactionTimeGame = ({ gameStarted, setGameStarted }) => {
   const startGame = (e) => {
@@ -7,21 +7,17 @@ const ReactionTimeGame = ({ gameStarted, setGameStarted }) => {
   };
 
   const displayGreen = () => {
-    returns (<button>
-      {' '}
-      <h2> it's green </h2>
-    </button>
-    )
-  }
+    returns(
+      <button>
+        {' '}
+        <h2> it's green </h2>
+      </button>
+    );
+  };
 
-
-  
   // setTimeout(displayGreen, 3000);
 
-
-
   if (gameStarted === true) {
-    
     return (
       <div>
         <button>
