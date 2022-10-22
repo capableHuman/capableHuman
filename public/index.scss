@@ -1,0 +1,49 @@
+* {
+  background-color: #bcbcbd;
+}
+
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  border: 1px solid blue;
+  .Login {
+    border: 4px solid pink;
+  }
+  .SignUp {
+    margin-top: 5px;
+    border: 1px solid purple;
+  }
+}
+
+.MainDisplay {
+  color: red;
+  border: 1px solid green;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.MainContainer {
+  border: 1px solid black;
+}
+
+.ReactionTimeButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.VerbalMemory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  padding-left: 50px;
+  padding-right: 50px;
+}
