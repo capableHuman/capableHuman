@@ -4,7 +4,12 @@ const path = require('path');
 const cors = require('cors');
 const PORT = 3000;
 
+const capableHumanController = require('../controllers/capableHumanController')
+
+
+app.use(cors())
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get(
   '/',
@@ -12,8 +17,16 @@ app.get(
     console.log('inside SERVER');
     res.send('the response from server');
   }
-  // res.sendFile(path.join(__dirname, '..', 'public/index.html'))
 );
+
+//receiving requests for user sign up
+app.post(
+  '/users',
+  capableHumanController.createUser,
+  (req, res) => {
+    res.status(200).send('Account created')
+  }
+)
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')));
