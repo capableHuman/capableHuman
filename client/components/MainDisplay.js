@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
 import ReactionTimeButton from './ReactionTimeButton';
+import StatsContainer from './StatsContainer';
 import VerbalMemory from './VerbalMemory';
-const MainDisplay = () => {
-  return (
-    <div className="MainDisplay">
-      <ReactionTimeButton />
-      <VerbalMemory />
-    </div>
-  );
+import ReactionTimeGame from './ReactionTimeGame';
+
+const MainDisplay = ({ gameMode, setGameMode }) => {
+  const [reactionTimeScore, setReactionTimeScore] = useState(0);
+
+  if (gameMode === 'reactionTime') {
+    return (
+      <>
+        <ReactionTimeGame />
+      </>
+    );
+  } else
+    return (
+      <>
+        <ReactionTimeButton setGameMode={setGameMode} />
+        <VerbalMemory />
+      </>
+    );
 };
 
 export default MainDisplay;
