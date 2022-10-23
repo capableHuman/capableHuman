@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 
 const MainContainer = () => {
   const [gameMode, setGameMode] = useState('mainPage');
+  
   return (
     <div className='MainContainer'>
       <Routes>

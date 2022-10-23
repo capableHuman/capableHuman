@@ -1,6 +1,11 @@
 import React, { useEffect, useTimer, useState } from 'react';
 // import ActiveReactionTimeGame from './ActiveReactionTimeGame';
-const ReactionTimeGame = ({ gameStarted, setGameStarted }) => {
+const ReactionTimeGame = ({
+  gameStarted,
+  setGameStarted,
+  currentSpeedScore,
+  setCurrentSpeedScore,
+}) => {
   const [clickable, setClickable] = useState(false);
   const [timerValue, setTimerValue] = useState(0);
   let clickSpeed = 0;
@@ -38,7 +43,7 @@ const ReactionTimeGame = ({ gameStarted, setGameStarted }) => {
   };
 
   const getTime = () => {
-    alert(clickSpeed);
+    setCurrentSpeedScore(clickSpeed);
     setGameStarted(false);
   };
 
@@ -51,6 +56,7 @@ const ReactionTimeGame = ({ gameStarted, setGameStarted }) => {
     // if so, startTimer
     return () => {
       console.log('from return statement of useEffect');
+      console.log('your state is ', currentSpeedScore);
       clearInterval(timerID);
     };
   }, [gameStarted]);

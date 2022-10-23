@@ -7,6 +7,12 @@ import ReactionTimeGame from './ReactionTimeGame';
 const MainDisplay = ({ gameMode, setGameMode }) => {
   const [reactionTimeScore, setReactionTimeScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  const [currentSpeedScore, setCurrentSpeedScore] = useState(null);
+
+// const saveReactionTimeScore = (e) => {
+//   axios.post('/')
+// }
+
   if (gameMode === 'reactionTime') {
     return (
       <>
@@ -15,11 +21,19 @@ const MainDisplay = ({ gameMode, setGameMode }) => {
           setReactionTimeScore={setReactionTimeScore}
           gameStarted={gameStarted}
           setGameStarted={setGameStarted}
+          currentSpeedScore={currentSpeedScore}
+          setCurrentSpeedScore={setCurrentSpeedScore}
         />
+        {currentSpeedScore ? 
+        (<>
+        <p>your previous score {currentSpeedScore}</p>
+        <button>save score</button>
+        </>) 
+        : null}
       </>
     );
-  } 
-  else // default mainPage
+  } // default mainPage
+  else
     return (
       <>
         <ReactionTimeButton setGameMode={setGameMode} />
