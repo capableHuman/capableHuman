@@ -3,15 +3,20 @@ import ReactionTimeButton from './ReactionTimeButton';
 import StatsContainer from './StatsContainer';
 import VerbalMemory from './VerbalMemory';
 import ReactionTimeGame from './ReactionTimeGame';
+import axios from 'axios';
+
+const server = axios.create({
+  baseURL: 'http://localhost:3000/',
+});
 
 const MainDisplay = ({ gameMode, setGameMode }) => {
   const [reactionTimeScore, setReactionTimeScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [currentSpeedScore, setCurrentSpeedScore] = useState(null);
 
-// const saveReactionTimeScore = (e) => {
-//   axios.post('/')
-// }
+  // const saveReactionTimeScore = (e) => {
+  //   server.post('/saveReactionTimeScore', {currentSpeedScore: currentSpeedScore})
+  // }
 
   if (gameMode === 'reactionTime') {
     return (
@@ -24,12 +29,12 @@ const MainDisplay = ({ gameMode, setGameMode }) => {
           currentSpeedScore={currentSpeedScore}
           setCurrentSpeedScore={setCurrentSpeedScore}
         />
-        {currentSpeedScore ? 
-        (<>
-        <p>your previous score {currentSpeedScore}</p>
-        <button>save score</button>
-        </>) 
-        : null}
+        {currentSpeedScore ? (
+          <>
+            <p>your previous score {currentSpeedScore}</p>
+            <button>save score</button>
+          </>
+        ) : null}
       </>
     );
   } // default mainPage
