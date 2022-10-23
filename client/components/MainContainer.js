@@ -5,12 +5,13 @@ import StatsContainer from './StatsContainer';
 import { Route, Routes } from 'react-router-dom';
 
 const MainContainer = () => {
-  const [gameMode, setGameMode] = useState('reactionTime');
+  const [gameMode, setGameMode] = useState('mainPage');
+  
   return (
-    <div className="MainContainer">
+    <div className='MainContainer'>
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={
             <>
               <Navbar />
@@ -20,11 +21,11 @@ const MainContainer = () => {
           }
         ></Route>
         <Route
-          path="/reactionTime"
+          path='/reactionTime'
           element={
             <>
               <Navbar />
-              <MainDisplay gameMode={gameMode}/>
+              <MainDisplay gameMode={gameMode} />
               <StatsContainer />
             </>
           }
