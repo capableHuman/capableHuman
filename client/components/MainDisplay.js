@@ -5,6 +5,12 @@ import VerbalMemory from './VerbalMemory';
 import ReactionTimeGame from './ReactionTimeGame';
 import axios from 'axios';
 
+
+const server = axios.create({
+  baseURL: 'http://localhost:3000/',
+});
+
+
 const server = axios.create({
   baseURL: 'http://localhost:3000/',
 });
@@ -21,17 +27,6 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
   //   server.post('/saveReactionTimeScore', {currentSpeedScore: currentSpeedScore})
   // }
 
-  // if(gameMode === 'signUp') {
-  //   return (
-      
-  //   )
-  // }
-
-  // if(gameMode === 'signUp') {
-  //   return (
-      
-  //   )
-  // }
 
   if (gameMode === 'reactionTime') {
     return (
@@ -52,6 +47,7 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
         ) : null}
       </>
     );
+
   } else if (gameMode === 'signUp') {
     return (
       <>
@@ -65,6 +61,9 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
       </>
     )
   } 
+
+  } //default mainpage
+
   else
     return (
       <>

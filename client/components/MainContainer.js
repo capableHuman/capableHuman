@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 const MainContainer = () => {
   const [gameMode, setGameMode] = useState('mainPage');
   const [currentUser, setCurrentUser] = useState('');
+
   return (
     <div className='MainContainer'>
       <Routes>
@@ -22,6 +23,7 @@ const MainContainer = () => {
         ></Route>
         <Route
           path='/reactionTime'
+
           element={
             <>
               <Navbar />
