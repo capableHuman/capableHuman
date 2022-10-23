@@ -1,13 +1,44 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const cors = require('cors');
 const PORT = 3000;
+const capableHumanController = require('../controllers/capableHumanController')
+const dotenv = require("dotenv").config();
 
+
+app.use(cors())
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '..', 'public/index.html'))
+
+app.get(
+  '/',
+  (req, res) => {
+    console.log('inside SERVER');
+    res.send('the response from server');
+  }
 );
+
+//receiving requests for user sign up
+app.post(
+  '/users',
+  capableHumanController.createUser,
+  (req, res) => {
+    res.status(200).send('Account created')
+  }
+);
+
+//receiving requests for user login
+app.post(
+  '/login',
+  capableHumanController.getUser,
+  (req, res) => {
+    // console.log('inside login');
+    res.send(res.locals.userStatus);
+  }
+);
+
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')));
