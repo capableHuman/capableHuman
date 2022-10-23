@@ -19,13 +19,14 @@ CREATE TABLE public.accounts (
 	"username" varchar NOT NULL,
 	"email" varchar, 
 	"password" varchar,
-  	"reactionGame_id" bigint, 
-  	"memoryGame_id" bigint,
-    "numberGame_id" bigint,
-	CONSTRAINT "accounts_pk" PRIMARY KEY ("_id"),
-  FOREIGN KEY (reactionGame_id) REFERENCES public.reactionGame(reactionGame_id),
-  FOREIGN KEY (memoryGame_id) REFERENCES public.memoryGame(memoryGame_id),
-  FOREIGN KEY (numberGame_id) REFERENCES public.numberGame(numberGame_id)
+  "reactionGame_id" bigint, 
+  "memoryGame_id" bigint,
+  "numberGame_id" bigint,
+	CONSTRAINT "accounts_pk" PRIMARY KEY ("_id")
+  -- In PSQL, we need to make the foreign key AFTER we create our parent table, we cant make it at the same time
+  -- FOREIGN KEY (reactionGame_id) REFERENCES public.reactionGame(reactionGame_id),
+  -- FOREIGN KEY (memoryGame_id) REFERENCES public.memoryGame(memoryGame_id),
+  -- FOREIGN KEY (numberGame_id) REFERENCES public.numberGame(numberGame_id)
 
 ) WITH (
   OIDS=FALSE
@@ -58,7 +59,11 @@ CREATE TABLE public.numberGame (
   OIDS=FALSE
 );
 
--- add foreign keys
--- ALTER TABLE public.accounts ADD CONSTRAINT "accounts_fk0" FOREIGN KEY ("reactionGame") REFERENCES  public.reactionGame("_id");
--- ALTER TABLE public.accounts ADD CONSTRAINT "accounts_fk1" FOREIGN KEY ("memoryGame") REFERENCES  public.memoryGame("_id");
--- ALTER TABLE public.accounts ADD CONSTRAINT "accounts_fk2" FOREIGN KEY ("numberGame") REFERENCES  public.numberGame("_id");
+-- adds foreign keys AFTER the tables are created
+-- ADD CONSTRAINT is an optional else PSQL will give it a default name
+-- Following FOREIGN KEY is the name of the column in the CHILD you want to make into a foreign key
+-- Following REFERENCES is the PARENT table and then in parenthesis is the column in THAT table you want to be the reference
+-- Foreign keys must be of the same type...
+ALTER TABLE public.accounts ADD CONSTRAINT "accounts_fk0" FOREIGN KEY ("reactiongame_id") REFERENCES  public.reactionGame("_id");
+ALTER TABLE public.accounts ADD CONSTRAINT "accounts_fk1" FOREIGN KEY ("memorygame_id") REFERENCES  public.memoryGame("_id");
+ALTER TABLE public.accounts ADD CONSTRAINT "accounts_fk2" FOREIGN KEY ("numbergame_id") REFERENCES  public.numberGame("_id");
