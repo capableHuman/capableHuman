@@ -22,7 +22,7 @@ app.get(
 
 //receiving requests for user sign up
 app.post(
-  '/users',
+  '/signup',
   capableHumanController.createUser,
   (req, res) => {
     res.status(200).send('Account created')
@@ -34,8 +34,8 @@ app.post(
   '/login',
   capableHumanController.getUser,
   (req, res) => {
-    // console.log('inside login');
-    res.send(res.locals.userStatus);
+    // console.log('inside server', res.locals.userName);
+    res.send(res.locals.userName);
   }
 );
 
