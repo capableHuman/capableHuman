@@ -3,6 +3,11 @@ import ReactionTimeButton from './ReactionTimeButton';
 import StatsContainer from './StatsContainer';
 import VerbalMemory from './VerbalMemory';
 import ReactionTimeGame from './ReactionTimeGame';
+import axios from 'axios';
+
+const server = axios.create({
+  baseURL: 'http://localhost:3000/',
+});
 import SignUp from './SignUp';
 import Login from './Login'
 
@@ -10,6 +15,17 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
   console.log('current gameMode state', gameMode)
   const [reactionTimeScore, setReactionTimeScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  const [currentSpeedScore, setCurrentSpeedScore] = useState(null);
+
+  // const saveReactionTimeScore = (e) => {
+  //   server.post('/saveReactionTimeScore', {currentSpeedScore: currentSpeedScore})
+  // }
+
+  // if(gameMode === 'signUp') {
+  //   return (
+      
+  //   )
+  // }
 
   // if(gameMode === 'signUp') {
   //   return (
@@ -25,7 +41,15 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
           setReactionTimeScore={setReactionTimeScore}
           gameStarted={gameStarted}
           setGameStarted={setGameStarted}
+          currentSpeedScore={currentSpeedScore}
+          setCurrentSpeedScore={setCurrentSpeedScore}
         />
+        {currentSpeedScore ? (
+          <>
+            <p>your previous score {currentSpeedScore}</p>
+            <button>save score</button>
+          </>
+        ) : null}
       </>
     );
   } else if (gameMode === 'signUp') {

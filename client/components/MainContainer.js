@@ -8,10 +8,10 @@ const MainContainer = () => {
   const [gameMode, setGameMode] = useState('mainPage');
   const [currentUser, setCurrentUser] = useState('');
   return (
-    <div className="MainContainer">
+    <div className='MainContainer'>
       <Routes>
         <Route
-          path="/"
+          path='/'
           element={
             <>
               <Navbar setGameMode={setGameMode} />
@@ -21,7 +21,7 @@ const MainContainer = () => {
           }
         ></Route>
         <Route
-          path="/reactionTime"
+          path='/reactionTime'
           element={
             <>
               <Navbar />
