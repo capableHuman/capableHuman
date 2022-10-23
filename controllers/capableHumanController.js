@@ -8,10 +8,29 @@ capableHumanController.createUser = async (req, res, next) => {
   //storing the query string to select for the last row in a variable
   const queryUserId = 'SELECT _id FROM public.accounts WHERE _id=(SELECT max(_id) FROM public.accounts)';
   
+/*
+const { username, email, password } = req.body;
+  console.log(username, email, password);
+
+  if (!username || !email || !password) {
+    res.status(400);
+    throw new Error('Please add all fields');
+  }
+
+  //Check if user exists
+  const findUserName = 'SELECT _id FROM public.accounts WHERE username = )'
+  const userExists = await User.findOne({ email });
+  if (userExists) {
+    res.status(400);
+    throw new Error('User already exists');
+  }
+*/
+
   //querying for the last row, then creating a variable to store the id from that row
+  let id;
   const idObj = await db.query(queryUserId);
   if (idObj['rows'].length > 0) {
-    let id = idObj['rows'][0]['_id'];
+    id = idObj['rows'][0]['_id'];
   } else {
     id = 0;
   }
@@ -40,14 +59,16 @@ capableHumanController.getUser = async (req, res, next) => {
   // const user = 'SELECT * FROM public.accounts WHERE email = $1'
   // const values = [`${req.body.email}`];
   const isUser = await db.query(query);
-  const userNameFound = isUser['rows'][0]['username']
+  const userNameFound = isUser['rows'][0]['username'];
   const hashedPass = isUser['rows'][0]['password'];
   console.log(userNameFound, hashedPass, req.body.password)
 
   // console.log('console starts here', userNameFound);
 
   if (userNameFound && (await bcrypt.compare(req.body.password, hashedPass))) {
-    res.locals.userStatus = generateToken(isUser['rows'][0]['_id']);
+    // res.locals.userStatus = generateToken(isUser['rows'][0]['_id']);
+    res.locals.userName = userNameFound;
+    console.log('username here', res.locals.userName);
     // res.locals.userStatus = 'great job you logged in buddy!';
   } else {
     res.status(400);
