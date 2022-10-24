@@ -1,37 +1,24 @@
 import React, { useState } from 'react';
 import ReactionTimeButton from './ReactionTimeButton';
+import NumberMemoryButton from './NumberMemoryButton';
 import StatsContainer from './StatsContainer';
 import VerbalMemory from './VerbalMemory';
 import ReactionTimeGame from './ReactionTimeGame';
+import NumberMemoryGame from './NumberMemoryGame';
+
 import axios from 'axios';
 
 const server = axios.create({
   baseURL: 'http://localhost:3000/',
 });
 import SignUp from './SignUp';
-import Login from './Login'
+import Login from './Login';
 
 const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
-  console.log('current gameMode state', gameMode)
+  console.log('current gameMode state', gameMode);
   const [reactionTimeScore, setReactionTimeScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [currentSpeedScore, setCurrentSpeedScore] = useState(null);
-
-  // const saveReactionTimeScore = (e) => {
-  //   server.post('/saveReactionTimeScore', {currentSpeedScore: currentSpeedScore})
-  // }
-
-  // if(gameMode === 'signUp') {
-  //   return (
-      
-  //   )
-  // }
-
-  // if(gameMode === 'signUp') {
-  //   return (
-      
-  //   )
-  // }
 
   if (gameMode === 'reactionTime') {
     return (
@@ -52,24 +39,30 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
         ) : null}
       </>
     );
+  } else if (gameMode === 'numberMemoryGame') {
+    return <NumberMemoryGame />;
   } else if (gameMode === 'signUp') {
     return (
       <>
         <SignUp />
       </>
-    )
+    );
   } else if (gameMode === 'login') {
     return (
       <>
-        <Login gameMode={gameMode} setGameMode={setGameMode} setCurrentUser={setCurrentUser} />
+        <Login
+          gameMode={gameMode}
+          setGameMode={setGameMode}
+          setCurrentUser={setCurrentUser}
+        />
       </>
-    )
-  } 
-  else
+    );
+  } else
     return (
       <>
         <ReactionTimeButton setGameMode={setGameMode} />
         <VerbalMemory />
+        <NumberMemoryButton setGameMode={setGameMode} />
       </>
     );
 };

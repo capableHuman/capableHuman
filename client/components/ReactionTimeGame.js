@@ -37,7 +37,7 @@ const ReactionTimeGame = ({
 
   const startTimer = () => {
     timerID = setInterval(() => {
-      clickSpeed += 5;
+      clickSpeed += 1;
       console.log(clickSpeed);
     }, 1);
   };
