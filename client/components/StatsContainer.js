@@ -6,6 +6,7 @@ const StatsContainer = ({
   currentSpeedScore,
 }) => {
   return (
+    
     <div>
       <h2>{overallHighSpeedScore}</h2>
       <h2>{highSpeedScore}</h2>

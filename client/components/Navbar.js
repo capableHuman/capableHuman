@@ -4,13 +4,19 @@ import React, { useState } from 'react';
 import MainDisplay from './MainDisplay';
 import SignUpButton from './SignUpButton';
 import LoginButton from './LoginButton';
+import HomeButton from './HomeButton';
 
-const Navbar = ({ setGameMode }) => {
+const Navbar = ({ setGameMode, currentUser }) => {
   return (
-    <div className="Navbar">
-      <LoginButton setGameMode={setGameMode} />
-      <SignUpButton setGameMode={setGameMode} />
-    </div>
+    
+      <div className='Navbar'>
+        <HomeButton setGameMode={setGameMode} />
+        <h4>{currentUser ? 'Welcome back, ' + currentUser: null}</h4>
+        <div>
+          <LoginButton setGameMode={setGameMode} />
+          <SignUpButton setGameMode={setGameMode} />
+        </div>
+      </div>
   );
 };
 

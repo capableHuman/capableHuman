@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 
 const MainContainer = () => {
   const [gameMode, setGameMode] = useState('mainPage');
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState(null);
   const [currentSpeedScore, setCurrentSpeedScore] = useState(null);
   const [highSpeedScore, setHighSpeedScore] = useState(null);
   const [overallHighSpeedScore, setOverallHighSpeedScore] = useState(null);
@@ -18,7 +18,7 @@ const MainContainer = () => {
           path='/'
           element={
             <>
-              <Navbar setGameMode={setGameMode} />
+              <Navbar setGameMode={setGameMode} currentUser={currentUser} />
               <MainDisplay gameMode={gameMode} setGameMode={setGameMode} />
               <StatsContainer />
             </>
@@ -28,7 +28,7 @@ const MainContainer = () => {
           path='/reactionTime'
           element={
             <>
-              <Navbar setGameMode={setGameMode} />
+              <Navbar currentUser={currentUser} setGameMode={setGameMode} />
               <MainDisplay
                 gameMode={gameMode}
                 currentUser={currentUser}
@@ -50,7 +50,7 @@ const MainContainer = () => {
           path='/numberMemory'
           element={
             <>
-              <Navbar setGameMode={setGameMode} />
+              <Navbar setGameMode={setGameMode} currentUser={currentUser} />
               <MainDisplay gameMode={gameMode} currentUser={currentUser} />
               <StatsContainer />
             </>

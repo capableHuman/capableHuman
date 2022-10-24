@@ -6,7 +6,7 @@
 .Navbar {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   border: 1px solid blue;
   .Login {
     border: 4px solid pink;

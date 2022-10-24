@@ -44,7 +44,7 @@ const ReactionTimeGame = ({
 
   const startTimer = () => {
     timerID = setInterval(() => {
-      clickSpeed += 1;
+      clickSpeed += 4;
       console.log(clickSpeed);
     }, 1);
   };
@@ -62,8 +62,8 @@ const ReactionTimeGame = ({
     // conditional checking to see if game started is true
     // if so, startTimer
     return () => {
-      console.log('from return statement of useEffect');
-      console.log('your state is ', currentSpeedScore);
+      // console.log('from return statement of useEffect');
+      // console.log('your state is ', currentSpeedScore);
       clearInterval(timerID);
     };
   }, [gameStarted]);
