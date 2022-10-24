@@ -20,9 +20,14 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
-
   module: {
     rules: [
+      
+      // {
+      //   test: /\.png|svg|jpg|gif$/,
+      //   use: ['file-loader'],
+      // },
+
       {
         test: /.js$/,
         exclude: /node_modules/,

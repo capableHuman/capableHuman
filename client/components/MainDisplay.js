@@ -30,14 +30,15 @@ const MainDisplay = ({
   const [gameStarted, setGameStarted] = useState(false);
 
   const saveReactionTimeScore = (e) => {
-    console.log(currentUser);
+    console.log('this is currentUser', currentUser.username);
     server
       .post('/saveReactionTimeScore', {
-        username: currentUser,
+        username: currentUser.username,
         score: currentSpeedScore,
       })
       .then((res) => {
         const { userHighScore, overallHighScore } = res.data;
+        console.log('line 40 on main display ', res.data);
         setHighSpeedScore(userHighScore);
         setOverallHighSpeedScore(overallHighScore);
       })
@@ -48,7 +49,7 @@ const MainDisplay = ({
 
   if (gameMode === 'reactionTime') {
     return (
-      <>
+      <div className='reactionTimeGame'>
         <ReactionTimeGame
           reactionTimeScore={reactionTimeScore}
           setReactionTimeScore={setReactionTimeScore}
@@ -59,18 +60,17 @@ const MainDisplay = ({
         />
         {currentSpeedScore ? (
           <>
-            <p>your previous score {currentSpeedScore}</p>
             <button onClick={saveReactionTimeScore}>save score</button>
           </>
         ) : null}
-      </>
+      </div>
     );
   } else if (gameMode === 'numberMemoryGame') {
     return <NumberMemoryGame currentUser={currentUser} />;
   } else if (gameMode === 'signUp') {
     return (
       <>
-        <SignUp />
+        <SignUp setGameMode={setGameMode} />
       </>
     );
   } else if (gameMode === 'login') {
