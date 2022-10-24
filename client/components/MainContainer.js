@@ -11,6 +11,7 @@ const MainContainer = () => {
   const [highSpeedScore, setHighSpeedScore] = useState(null);
   const [overallHighSpeedScore, setOverallHighSpeedScore] = useState(null);
 
+
   return (
     <div className='MainContainer'>
       <Routes>
@@ -39,9 +40,11 @@ const MainContainer = () => {
                 setOverallHighSpeedScore={setOverallHighSpeedScore}
               />
               <StatsContainer
+                currentUser={currentUser}
                 highSpeedScore={highSpeedScore}
                 currentSpeedScore={currentSpeedScore}
                 overallHighSpeedScore={overallHighSpeedScore}
+                gameMode={gameMode}
               />
             </>
           }
@@ -52,7 +55,7 @@ const MainContainer = () => {
             <>
               <Navbar setGameMode={setGameMode} currentUser={currentUser} />
               <MainDisplay gameMode={gameMode} currentUser={currentUser} />
-              <StatsContainer />
+              <StatsContainer gameMode={gameMode} currentUser={currentUser} />  
             </>
           }
         ></Route>
@@ -61,8 +64,7 @@ const MainContainer = () => {
           element={
             <>
               <Navbar setGameMode={setGameMode} />
-              <MainDisplay gameMode={gameMode} />
-              <StatsContainer />
+              <MainDisplay setGameMode={setGameMode} gameMode={gameMode} />
             </>
           }
         ></Route>
@@ -76,7 +78,6 @@ const MainContainer = () => {
                 setCurrentUser={setCurrentUser}
                 setGameMode={setGameMode}
               />
-              <StatsContainer />
             </>
           }
         ></Route>

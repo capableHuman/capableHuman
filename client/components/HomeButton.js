@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+// import Logo from '../client/capableHumanLogo.png'
 const HomeButton = ({ setGameMode }) => {
   const navigate = useNavigate();
   const handleClickLogin = (e) => {
@@ -11,7 +11,7 @@ const HomeButton = ({ setGameMode }) => {
   return (
     <>
       <button onClick={handleClickLogin} className='loginButton'>
-        <img src='../capableHumanLogo.png' />
+        <img src='' />
       </button>
     </>
   );

@@ -54,7 +54,7 @@ const NumberMemoryGame = ({ currentUser }) => {
     console.log('level', level);
     server
       .post('/saveNumberGameScore', {
-        username: currentUser,
+        username: currentUser.username,
         score: level,
       })
       .then((res) => {
@@ -101,9 +101,9 @@ const NumberMemoryGame = ({ currentUser }) => {
     <>
       <div>You lose! You made it to level {level}</div>
       <button onClick={() => saveScore(level)}>Save Level</button>
-      <div>Personal High Level: {userScore}</div>
+      <div>Personal High Level: {currentUser.numberGameScore}</div>
       <div>Overall High Level: {overallScore}</div>
-    </>
+    </>  // numberGameScore
   );
 };
 

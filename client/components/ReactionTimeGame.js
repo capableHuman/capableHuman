@@ -43,6 +43,7 @@ const ReactionTimeGame = ({
   // };
 
   const startTimer = () => {
+    setClickable(true);
     timerID = setInterval(() => {
       clickSpeed += 4;
       console.log(clickSpeed);
@@ -86,10 +87,11 @@ const ReactionTimeGame = ({
             </p>
           </button>
         </>
-      )}
-      {}
+      )
+      }
     </>
   );
 };
 
 export default ReactionTimeGame;
+

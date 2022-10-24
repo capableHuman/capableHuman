@@ -1,5 +1,5 @@
 * {
-  background-color: #bcbcbd;
+  background-color: #ffffff;
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -53,18 +53,35 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
   h3 {
     display: flex;
     justify-content: center;
+    background-color: #ffd43b;
   }
   form {
+    // border-radius: 20px;
+    background-color: #ffd43b;
+    border-style: dotted dashed solid solid;
+    border-color: black;
+    border-width: thick;
+    padding: 15px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 500px;
+    min-height: 500px;
+    min-width: 500px;
+    max-width: 500px;
+    margin-top: 60px;
+    margin-bottom: 60px;
     label {
       display: flex;
       justify-content: flex-start;
+      font-weight: bold;
+      background-color: #ffd43b;
       margin-left: -80px;
     }
     input {
@@ -74,22 +91,60 @@
   }
 }
 
+.reactionTimeGame {
+  height: 500px;
+  width: 100%;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  height: 200px;
+  h4 {
+    background-color: #ffd43b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .SignUp {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
   h3 {
+    background-color: #ffd43b;
     display: flex;
     justify-content: center;
   }
   form {
+    border-style: dotted dashed solid solid;
+    border-color: black;
+    border-width: thick;
+    // border-radius: 20px;
+    background-color: #ffd43b;
+    padding: 15px 0px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    min-height: 500px;
+    min-height: 500px;
+    min-width: 500px;
+    max-width: 500px;
+    margin-bottom: 60px;
+    margin-top: 60px;
     label {
       display: flex;
       justify-content: flex-start;
+      font-weight: bold;
+      background-color: #ffd43b;
+      margin-left: -80px;
     }
     input {
       max-width: 10rem;

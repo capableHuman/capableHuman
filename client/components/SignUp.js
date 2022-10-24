@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-const SignUp = () => {
+import { useNavigate } from 'react-router-dom';
+const SignUp = ({ setGameMode }) => {
+  const navigate = useNavigate();
   const server = axios.create({
     baseURL: 'http://localhost:3000/',
   });
@@ -39,6 +40,8 @@ const SignUp = () => {
       .catch((err) => {
         console.error(err);
       });
+    setGameMode('login');
+    navigate('/login');
   }
 
   const handleClick = (e) => {
@@ -49,8 +52,8 @@ const SignUp = () => {
 
   return (
     <div className='SignUp'>
-      <h3>Sign up here!</h3>
       <form>
+        <h3>Sign up here!</h3>
         <label htmlFor='email'>Email: </label>
         <input
           onChange={handleEmailInput}

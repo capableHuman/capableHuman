@@ -26,7 +26,7 @@ const Login = ({ setCurrentUser, setGameMode }) => {
     if (userName.length === 0 || password.length === 0) {
       return;
     }
-   
+
     server
       .post('/login', {
         username: userName,
@@ -34,21 +34,21 @@ const Login = ({ setCurrentUser, setGameMode }) => {
       })
       .then((res) => {
         setCurrentUser(res.data);
-        console.log(res)
+        console.log(res);
         // setGameMode('mainPage');
       })
       .catch((err) => {
         console.error(err);
       });
-    setGameMode('mainPage')
+    setGameMode('mainPage');
     navigate('/');
     // console.log(`this is the user`)
   };
 
   return (
     <div className='Login'>
-      <h3>Login here!</h3>
       <form>
+        <h3>Login here!</h3>
         <>
           <label htmlFor='username'>Username: </label>
           <input

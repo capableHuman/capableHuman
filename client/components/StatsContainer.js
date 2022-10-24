@@ -1,18 +1,31 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect, useTimer } from 'react';
 const StatsContainer = ({
   overallHighSpeedScore,
   highSpeedScore,
   currentSpeedScore,
+  currentUser,
+  gameMode,
 }) => {
-  return (
-    
-    <div>
-      <h2>{overallHighSpeedScore}</h2>
-      <h2>{highSpeedScore}</h2>
-      <h2>{currentSpeedScore}</h2>
-    </div>
-  );
+  console.log('from statscontainer, gameMode:', gameMode);
+  console.log('from statscontainer, currentUser:', currentUser);
+
+  useEffect(() => {}, [currentSpeedScore]);
+
+  if (gameMode === 'reactionTime' && currentUser !== null) {
+    console.log('in IF statement');
+    return (
+      <div className='statsContainer'>
+        <h2>{`Your Previous Speed Score: ${
+          currentSpeedScore ? currentSpeedScore + ' ms' : ''
+        }`}</h2>
+        <h2>{`Personal High Speed Score: ${
+          currentUser.reactionGameScore
+            ? currentUser.reactionGameScore + ' ms'
+            : ''
+        }`}</h2>
+      </div>
+    );
+  }
 };
 
 export default StatsContainer;
