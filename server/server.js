@@ -9,6 +9,8 @@ const dotenv = require('dotenv').config();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// static file-serving middleware
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/', (req, res) => {
   console.log('inside SERVER');
@@ -27,7 +29,7 @@ app.post('/login', capableHumanController.getUser, (req, res) => {
     username: res.locals.userName,
     reactionGameScore: res.locals.reactionScore,
     memoryGameScore: res.locals.memoryScore,
-    numberGameScore: res.locals.numberScore
+    numberGameScore: res.locals.numberScore,
   });
 });
 
@@ -37,12 +39,10 @@ app.post(
   '/saveReactionTimeScore',
   capableHumanController.updateReactionGameScore,
   (req, res) => {
-    res
-      .status(200)
-      .json({
-        userHighScore: res.locals.userHighScore,
-        overallHighScore: res.locals.overallTopScore,
-      });
+    res.status(200).json({
+      userHighScore: res.locals.userHighScore,
+      overallHighScore: res.locals.overallTopScore,
+    });
   }
 );
 
@@ -50,17 +50,12 @@ app.post(
   '/saveNumberGameScore',
   capableHumanController.updateNumberGameScore,
   (req, res) => {
-    res
-      .status(200)
-      .json({
-        userHighLevel: res.locals.userHighLevel,
-        overallHighLevel: res.locals.overallHighLevel,
-      });
+    res.status(200).json({
+      userHighLevel: res.locals.userHighLevel,
+      overallHighLevel: res.locals.overallHighLevel,
+    });
   }
 );
-
-// static file-serving middleware
-app.use(express.static(path.join(__dirname, '..', 'public')));
 
 //Vivian added a global error handler
 app.use((err, req, res, next) => {
