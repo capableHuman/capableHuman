@@ -9,7 +9,7 @@ const LoginButton = ({ setGameMode }) => {
       setGameMode('login');
     };
     return (
-      <button onClick={handleClickLogin} className="loginButton">
+      <button onClick={handleClickLogin} className="navRight signupLogin">
         <h3>Login</h3>
       </button>
     );

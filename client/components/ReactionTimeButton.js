@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 const ReactionTimeButton = ({ setGameMode }) => {
   const navigate = useNavigate();
   const handleClick = (e) => {
@@ -11,7 +10,11 @@ const ReactionTimeButton = ({ setGameMode }) => {
   };
   return (
     <button onClick={handleClick} className="ReactionTimeButton">
-      <h3>Reaction Time</h3>
+      <strong className="cardTitle">Reaction Time</strong>
+      <div className="fontAwesome">
+        <i class="fa-solid fa-bolt fa-2xl"></i>
+      </div>
+
       <p>Test your reflexes!</p>
     </button>
   );

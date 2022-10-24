@@ -5,6 +5,7 @@ import StatsContainer from './StatsContainer';
 import VerbalMemory from './VerbalMemory';
 import ReactionTimeGame from './ReactionTimeGame';
 import NumberMemoryGame from './NumberMemoryGame';
+import HomeButton from './HomeButton';
 
 import axios from 'axios';
 
@@ -84,11 +85,54 @@ const MainDisplay = ({
     );
   } else
     return (
-      <>
-        <ReactionTimeButton setGameMode={setGameMode} />
-        <VerbalMemory />
-        <NumberMemoryButton setGameMode={setGameMode} />
-      </>
+      <div id="MainPageContainer">
+        <div id="MainPage">
+          <ReactionTimeButton setGameMode={setGameMode} />
+          <NumberMemoryButton setGameMode={setGameMode} />
+          <button className="ReactionTimeButton">
+            <strong className="cardTitle">Verbal Memory</strong>
+            <div className="fontAwesome">
+              <i className="fa-solid fa-book fa-2xl"></i>
+            </div>
+            <p>Remember as many words as possible!</p>
+          </button>
+          <button className="ReactionTimeButton">
+            <strong className="cardTitle">Sequence Trainer</strong>
+            <div className="fontAwesome">
+              <i className="fa-solid fa-table-cells fa-2xl"></i>
+            </div>
+            <p>Remember the order of the buttons!</p>
+          </button>
+          <button className="ReactionTimeButton">
+            <strong className="cardTitle">Aim Trainer</strong>
+            <div className="fontAwesome">
+              <i className="fa-solid fa-crosshairs fa-2xl"></i>
+            </div>
+            <p>How quickly can you hit all targets?</p>
+          </button>
+          <button className="ReactionTimeButton">
+            <strong className="cardTitle">Chimp Test</strong>
+            <div className="fontAwesome">
+              <i className="fa-brands fa-mailchimp fa-2xl"></i>
+            </div>
+            <p>Are you smarter than a chimpanzee?</p>
+          </button>
+          <button className="ReactionTimeButton">
+            <strong className="cardTitle">Visual Memory</strong>
+            <div className="fontAwesome">
+              <i className="fa-solid fa-palette fa-2xl"></i>
+            </div>
+            <p>Remember the number of squares!</p>
+          </button>
+          <button className="ReactionTimeButton">
+            <strong className="cardTitle">Typing</strong>
+            <div className="fontAwesome">
+              <i className="fa-regular fa-keyboard fa-2xl"></i>
+            </div>
+            <p>Test how many WPM you can type!</p>
+          </button>
+        </div>
+      </div>
     );
 };
 

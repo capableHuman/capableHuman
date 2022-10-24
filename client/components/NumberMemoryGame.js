@@ -84,9 +84,9 @@ const NumberMemoryGame = ({ currentUser }) => {
      */
   return playing ? (
     numberView ? (
-      <div>{targetNumber}</div>
+      <div className="numGame">{targetNumber}</div>
     ) : (
-      <>
+      <div className="numGame">
         <input
           type="text"
           value={userNumber}
@@ -95,15 +95,15 @@ const NumberMemoryGame = ({ currentUser }) => {
         <button type="button" onClick={handleSubmit}>
           Submit
         </button>
-      </>
+      </div>
     )
   ) : (
-    <>
+    <div className="numGame">
       <div>You lose! You made it to level {level}</div>
       <button onClick={() => saveScore(level)}>Save Level</button>
       <div>Personal High Level: {currentUser.numberGameScore}</div>
       <div>Overall High Level: {overallScore}</div>
-    </>  // numberGameScore
+    </div>
   );
 };
 

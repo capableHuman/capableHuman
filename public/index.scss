@@ -1,43 +1,83 @@
 * {
-  background-color: #ffffff;
   font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  font-size: 15px;
+}
+
+.fontAwesome {
+  margin: 15px;
+}
+
+.homeButton {
+  border: none;
+  padding: 0;
 }
 
 .Navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid blue;
-  .Login {
-    border: 4px solid pink;
-  }
-  .SignUp {
-    margin-top: 5px;
-    border: 1px solid purple;
+  padding: 20px 35px;
+  
+  .navRight {
+    margin: 0 5px;
+    height: 70px;
+    width: 100px;
+    background-color: #FFD43B;
+    border-radius: 20%;
   }
 }
 
 .MainDisplay {
   color: red;
-  border: 1px solid green;
+  
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.MainContainer {
-  border: 1px solid black;
+#MainPageContainer {
+  display: flex;
+  justify-content: center;
+  height: 650px;
+  padding-top: 30px;
+  background-color: #dfffd6;
+
+  #MainPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    max-width: 1000px;
+    
+  }
+}
+
+.cardTitle{
+  font-size: 1.5rem;
 }
 
 .ReactionTimeButton {
   display: flex;
+  flex-basis: 28%;
+  flex-grow: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: aqua;
+  background-color: #FFD43B;
   padding-left: 50px;
   padding-right: 50px;
+  width: 250px;
+  height: 175px;
+  transition: transform ease 300ms;
+  box-shadow: 5px 8px #888888
 }
+
+.ReactionTimeButton:hover{
+  cursor: pointer;
+  transform: translate(0, -10px);
+}
+
 
 .VerbalMemory {
   display: flex;
@@ -153,7 +193,32 @@
   }
 }
 
+.homeButton:hover{
+  cursor: pointer;
+}
+
+.signupLogin {
+  transition: all .5s ease;
+}
+
+.signupLogin:hover {
+  cursor: pointer;
+  color: #001F3F;
+  background-color: #fff
+}
+
 .red {
   color: white;
   background-color: #e41b17;
+}
+
+
+.numGame {
+  padding: 30px 0px;
+  height: 600px;
+  background-color: #dfffd6;
+  text-align: center;
+  align-items: center;
+  font-size: 44px;
+
 }
