@@ -1,11 +1,14 @@
+import axios from 'axios';
 import React, { useEffect, useTimer, useState } from 'react';
 
-const NumberMemoryGame = () => {
+const NumberMemoryGame = ({ currentUser }) => {
   const [level, setLevel] = useState(1);
   const [targetNumber, setTargetNumber] = useState(null);
   const [userNumber, setUserNumber] = useState('');
   const [numberView, setNumberView] = useState(true);
   const [playing, setPlaying] = useState(true);
+  const [userScore, setUserScore] = useState('');
+  const [overallScore, setOverallScore] = useState('');
 
   useEffect(() => {
     setTargetNumber(getNewNumber());
@@ -42,6 +45,28 @@ const NumberMemoryGame = () => {
     }
   };
 
+  const server = axios.create({
+    baseURL: 'http://localhost:3000/',
+  });
+
+  const saveScore = (level) => {
+    console.log(currentUser);
+    console.log('level', level);
+    server
+      .post('/saveNumberGameScore', {
+        username: currentUser,
+        score: level,
+      })
+      .then((res) => {
+        const { userHighLevel, overallHighLevel } = res.data;
+        setUserScore(res.data.userHighLevel);
+        setOverallScore(res.data.overallHighLevel);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   //screen to start game
 
   //player needs to remember the number before the Timer expires
@@ -73,7 +98,12 @@ const NumberMemoryGame = () => {
       </>
     )
   ) : (
-    <div>You lose! You made it to level {level}</div>
+    <>
+      <div>You lose! You made it to level {level}</div>
+      <button onClick={() => saveScore(level)}>Save Level</button>
+      <div>Personal High Level: {userScore}</div>
+      <div>Overall High Level: {overallScore}</div>
+    </>
   );
 };
 

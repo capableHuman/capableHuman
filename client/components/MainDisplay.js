@@ -66,7 +66,7 @@ const MainDisplay = ({
       </>
     );
   } else if (gameMode === 'numberMemoryGame') {
-    return <NumberMemoryGame />;
+    return <NumberMemoryGame currentUser={currentUser} />;
   } else if (gameMode === 'signUp') {
     return (
       <>
