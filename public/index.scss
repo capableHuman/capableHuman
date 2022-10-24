@@ -1,0 +1,239 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  font-size: 15px;
+}
+
+.fontAwesome {
+  margin: 15px;
+}
+
+.homeButton {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 40px;
+  height: 70px;
+  
+  .navRight {
+    margin: 0 5px;
+    height: 70px;
+    width: 100px;
+    background-color: #FFD43B;
+    border-radius: 20%;
+  }
+}
+
+.MainDisplay {
+  color: red;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#MainPageContainer {
+  display: flex;
+  justify-content: center;
+  height: 650px;
+  padding-top: 30px;
+  background-color: #e6e3dc;
+
+  #MainPage {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-flow: row wrap;
+    max-width: 1000px;
+    
+  }
+}
+
+.cardTitle{
+  font-size: 1.5rem;
+}
+
+.ReactionTimeButton {
+  display: flex;
+  flex-basis: 28%;
+  flex-grow: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFD43B;
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 250px;
+  height: 175px;
+  transition: transform ease 300ms;
+  box-shadow: 5px 8px #888888
+}
+
+.ReactionTimeButton:hover{
+  cursor: pointer;
+  transform: translate(0, -10px);
+}
+
+
+.VerbalMemory {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  h3 {
+    display: flex;
+    justify-content: center;
+    background-color: #ffd43b;
+  }
+  form {
+    // border-radius: 20px;
+    background-color: #ffd43b;
+    border-style: dotted dashed solid solid;
+    border-color: black;
+    border-width: thick;
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    min-height: 500px;
+    min-width: 500px;
+    max-width: 500px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    label {
+      display: flex;
+      justify-content: flex-start;
+      font-weight: bold;
+      background-color: #ffd43b;
+      margin-left: -80px;
+    }
+    input {
+      max-width: 10rem;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.reactionTimeGame {
+  height: 500px;
+  width: 100%;
+}
+
+.statsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  height: 200px;
+  h4 {
+    background-color: #ffd43b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.SignUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  h3 {
+    background-color: #ffd43b;
+    display: flex;
+    justify-content: center;
+  }
+  form {
+    border-style: dotted dashed solid solid;
+    border-color: black;
+    border-width: thick;
+    // border-radius: 20px;
+    background-color: #ffd43b;
+    padding: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+    min-height: 500px;
+    min-width: 500px;
+    max-width: 500px;
+    margin-bottom: 60px;
+    margin-top: 60px;
+    label {
+      display: flex;
+      justify-content: flex-start;
+      font-weight: bold;
+      background-color: #ffd43b;
+      margin-left: -80px;
+    }
+    input {
+      max-width: 10rem;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.homeButton:hover{
+  cursor: pointer;
+}
+
+.signupLogin {
+  transition: all .5s ease;
+}
+
+.signupLogin:hover {
+  cursor: pointer;
+  color: #001F3F;
+  background-color: #fff
+}
+
+.red {
+  color: white;
+  background-color: #e41b17;
+}
+
+
+.numGame {
+  padding: 50px 0px;
+  height: 600px;
+  background-color: #fcd581;
+  text-align: center;
+  align-items: center;
+  font-size: 50px;
+  .numGameBox {
+    height: 60px;
+    width: 300px;
+    font-size: 50px;
+  }
+  .numGameLose {
+    font-size: 40px;
+  }
+  .numGameSaveScore {
+    background-color: #FFD43B;
+    height: 50px;
+    width: 200px;
+    font-size: 24px;
+  }
+}

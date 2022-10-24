@@ -1,0 +1,24 @@
+<div className="MainDisplay">
+<ReactionTimeButton />
+<VerbalMemory />
+</div>
+
+
+
+
+
+{/* 
+      ) : (
+        <ReactionTimeGame />
+      )
+    </> */}
+
+    {
+      switch (gameMode) {
+      case 'mainPage':
+       
+     ;
+    break;
+ }
+      
+     }
