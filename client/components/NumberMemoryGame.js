@@ -88,6 +88,7 @@ const NumberMemoryGame = ({ currentUser }) => {
     ) : (
       <div className="numGame">
         <input
+          className="numGameBox"
           type="text"
           value={userNumber}
           onChange={(e) => setUserNumber(e.target.value)}
@@ -99,10 +100,14 @@ const NumberMemoryGame = ({ currentUser }) => {
     )
   ) : (
     <div className="numGame">
-      <div>You lose! You made it to level {level}</div>
-      <button onClick={() => saveScore(level)}>Save Level</button>
-      <div>Personal High Level: {currentUser.numberGameScore}</div>
-      <div>Overall High Level: {overallScore}</div>
+      <div className="numGameLose">You lose! You made it to level {level}</div>
+      <button className="numGameSaveScore" onClick={() => saveScore(level)}>
+        Save Level
+      </button>
+      <div className="numGameLose">
+        Personal High Level: {currentUser.numberGameScore}
+      </div>
+      <div className="numGameLose">Overall High Level: {overallScore}</div>
     </div>
   );
 };
