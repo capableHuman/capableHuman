@@ -14,11 +14,16 @@ const server = axios.create({
 import SignUp from './SignUp';
 import Login from './Login';
 
-const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
+const MainDisplay = ({ gameMode, setGameMode, setCurrentUser, currentUser }) => {
   console.log('current gameMode state', gameMode);
   const [reactionTimeScore, setReactionTimeScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [currentSpeedScore, setCurrentSpeedScore] = useState(null);
+
+  const saveReactionTimeScore = (e) => {
+    server.post('/saveReactionTimeScore', { username: currentUser,
+    })
+  }
 
   if (gameMode === 'reactionTime') {
     return (
@@ -34,7 +39,7 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
         {currentSpeedScore ? (
           <>
             <p>your previous score {currentSpeedScore}</p>
-            <button>save score</button>
+            <button onClick={saveReactionTimeScore}>save score</button>
           </>
         ) : null}
       </>

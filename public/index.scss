@@ -1,5 +1,6 @@
 * {
   background-color: #bcbcbd;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .Navbar {
@@ -46,4 +47,58 @@
   background-color: aqua;
   padding-left: 50px;
   padding-right: 50px;
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h3 {
+    display: flex;
+    justify-content: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    label {
+      display: flex;
+      justify-content: flex-start;
+      margin-left: -80px;
+    }
+    input {
+      max-width: 10rem;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.SignUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h3 {
+    display: flex;
+    justify-content: center;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    label {
+      display: flex;
+      justify-content: flex-start;
+    }
+    input {
+      max-width: 10rem;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.red {
+  color: white;
+  background-color: #e41b17;
 }
