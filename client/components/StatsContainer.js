@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 
-const StatsContainer = () => {
+const StatsContainer = ({
+  overallHighSpeedScore,
+  highSpeedScore,
+  currentSpeedScore,
+}) => {
   return (
     <div>
-      <>StatsContainer Component</>
+      <h2>{overallHighSpeedScore}</h2>
+      <h2>{highSpeedScore}</h2>
+      <h2>{currentSpeedScore}</h2>
     </div>
   );
 };
