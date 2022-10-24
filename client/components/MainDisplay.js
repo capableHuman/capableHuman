@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import ReactionTimeButton from './ReactionTimeButton';
+import NumberMemoryButton from './NumberMemoryButton';
 import StatsContainer from './StatsContainer';
 import VerbalMemory from './VerbalMemory';
 import ReactionTimeGame from './ReactionTimeGame';
+import NumberMemoryGame from './NumberMemoryGame';
+
 import axios from 'axios';
 
 const server = axios.create({
@@ -16,10 +19,6 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
   const [reactionTimeScore, setReactionTimeScore] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [currentSpeedScore, setCurrentSpeedScore] = useState(null);
-
-  // const saveReactionTimeScore = (e) => {
-  //   server.post('/saveReactionTimeScore', {currentSpeedScore: currentSpeedScore})
-  // }
 
   if (gameMode === 'reactionTime') {
     return (
@@ -40,6 +39,8 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
         ) : null}
       </>
     );
+  } else if (gameMode === 'numberMemoryGame') {
+    return <NumberMemoryGame />;
   } else if (gameMode === 'signUp') {
     return (
       <>
@@ -61,6 +62,7 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser }) => {
       <>
         <ReactionTimeButton setGameMode={setGameMode} />
         <VerbalMemory />
+        <NumberMemoryButton setGameMode={setGameMode} />
       </>
     );
 };
