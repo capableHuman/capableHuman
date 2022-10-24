@@ -9,10 +9,10 @@ const MainContainer = () => {
   const [currentUser, setCurrentUser] = useState('');
 
   return (
-    <div className='MainContainer'>
+    <div className="MainContainer">
       <Routes>
         <Route
-          path='/'
+          path="/"
           element={
             <>
               <Navbar setGameMode={setGameMode} />
@@ -22,12 +22,21 @@ const MainContainer = () => {
           }
         ></Route>
         <Route
-          path='/reactionTime'
-
+          path="/reactionTime"
           element={
             <>
-              <Navbar />
-              <MainDisplay gameMode={gameMode} setCurrentUser={setCurrentUser} currentUser={currentUser}/>
+              <Navbar setGameMode={setGameMode} />
+              <MainDisplay gameMode={gameMode} currentUser={currentUser} />
+              <StatsContainer />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/numberMemory"
+          element={
+            <>
+              <Navbar setGameMode={setGameMode} />
+              <MainDisplay gameMode={gameMode} currentUser={currentUser} />
               <StatsContainer />
             </>
           }
@@ -36,7 +45,7 @@ const MainContainer = () => {
           path="/signUp"
           element={
             <>
-              <Navbar />
+              <Navbar setGameMode={setGameMode} />
               <MainDisplay gameMode={gameMode} />
               <StatsContainer />
             </>
@@ -46,8 +55,12 @@ const MainContainer = () => {
           path="/login"
           element={
             <>
-              <Navbar />
-              <MainDisplay gameMode={gameMode} setCurrentUser={setCurrentUser} setGameMode={setGameMode} />
+              <Navbar setGameMode={setGameMode} />
+              <MainDisplay
+                gameMode={gameMode}
+                setCurrentUser={setCurrentUser}
+                setGameMode={setGameMode}
+              />
               <StatsContainer />
             </>
           }

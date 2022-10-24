@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import ReactionTimeButton from './ReactionTimeButton';
+import NumberMemoryButton from './NumberMemoryButton';
 import StatsContainer from './StatsContainer';
 import VerbalMemory from './VerbalMemory';
 import ReactionTimeGame from './ReactionTimeGame';
+import NumberMemoryGame from './NumberMemoryGame';
+
 import axios from 'axios';
 
 const server = axios.create({
@@ -41,6 +44,8 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser, currentUser }) => 
         ) : null}
       </>
     );
+  } else if (gameMode === 'numberMemoryGame') {
+    return <NumberMemoryGame />;
   } else if (gameMode === 'signUp') {
     return (
       <>
@@ -62,6 +67,7 @@ const MainDisplay = ({ gameMode, setGameMode, setCurrentUser, currentUser }) => 
       <>
         <ReactionTimeButton setGameMode={setGameMode} />
         <VerbalMemory />
+        <NumberMemoryButton setGameMode={setGameMode} />
       </>
     );
 };
