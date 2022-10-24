@@ -39,6 +39,16 @@ app.post(
   }
 );
 
+//receiving requests for storing & updating score in reaction game
+//post request should send { username: user1, score: 200 }  for example
+app.post(
+  '/reactionTimeScore',
+  capableHumanController.updateReactionGameScore,
+  (req, res) => {
+    res.status(200).json({userHighScore: res.locals.userHighScore, overallHighScore: res.locals.overallTopScore});
+  }
+);
+
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')));

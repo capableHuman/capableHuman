@@ -82,6 +82,65 @@ capableHumanController.getUser = async (req, res, next) => {
   return next();
 }
 
+//**Vivian edited code from here**
+capableHumanController.updateReactionGameScore = async (req, res, next) => {
+  const { username, score } = req.body;
+
+  //first check if the user's score is defined in the table already w/ a query
+  const accountsQuery = {
+    name: 'reactionGameUserExists',
+    text: 'SELECT * FROM public.accounts WHERE username = $1',
+    values: [`${req.body.username}`],
+  }
+  const userObj = await db.query(accountsQuery);
+  if (userObj['rows'].length === 0) throw new Error('Please input a valid username in the system');
+  const reactionGameId = userObj['rows'][0]['reactiongame_id'];
+  const currUserId = userObj['rows'][0]['_id'];
+
+  //Case 1: reactionGameId is null, this is the user's first time playing
+  if (!reactionGameId) {
+    //(1) Insert the currently passed in score as the value in the parent table (reactionGame)
+    const reactGameQueryStr = "INSERT INTO reactiongame VALUES($1, $2)"
+    const values = [currUserId, score];
+    db.query(reactGameQueryStr, values);
+
+    //(2) Update the foreign key in the parent table (accounts)
+    const fkUpdateQuery = {
+      name: 'foreign key query',
+      text: "UPDATE accounts SET reactiongame_id = $1 WHERE _id = $2",
+      values: [currUserId, currUserId],
+    }
+    db.query(fkUpdateQuery);
+    res.locals.userHighScore = score;
+  } 
+  //Case 2: reactionGameId is not null
+  //return new high score or their previous score if their time is greater than the one in the db
+  else {
+    //(1) check if the current score is less than the stored score in the database
+    let scoreQuery = "SELECT highscore FROM reactiongame WHERE _id = $1"
+    const values = [currUserId];
+    const user = await db.query(scoreQuery, values);
+    const dbScore = user['rows'][0]['highscore'];
+    if (Number(score) < Number(dbScore)) {
+      scoreQuery = "UPDATE reactiongame SET highscore = $1 WHERE _id = $2"
+      const values = [score, currUserId];
+      db.query(scoreQuery, values);
+      res.locals.userHighScore = score;
+    } 
+    //if score in DB is lower, then we want to just return that score back to the user
+    else if (dbScore <= score) {
+      res.locals.userHighScore = dbScore;
+    }
+  }
+  
+  //return top score among all scores in the table reactionGame
+  let topScoreQuery = 'SELECT highscore FROM reactiongame WHERE highscore=(SELECT min(highscore) FROM reactiongame)'
+  const topScores = await db.query(topScoreQuery);
+  res.locals.overallTopScore = topScores['rows'][0]['highscore'];
+  return next();
+}
+
+
 
 
 const generateToken = (id) => {
