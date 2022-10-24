@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const SignUp = () => {
+
   const server = axios.create({
     baseURL: 'http://localhost:3000/',
   });
@@ -41,6 +42,13 @@ const SignUp = () => {
         console.error(err);
       });
   }
+
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    navigate('/signUp');
+    setGameMode('signUp');
+  };
 
   return (
     <div className="SignUp">
