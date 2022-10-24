@@ -8,9 +8,9 @@ import HomeButton from './HomeButton';
 
 const Navbar = ({ setGameMode, currentUser }) => {
   return (
-    <div className='Navbar'>
+    <div className="Navbar">
       <HomeButton setGameMode={setGameMode} />
-      <h4>{currentUser ? 'Welcome back, ' + currentUser.username : null}</h4>
+        <h4>{currentUser ? 'Welcome back, ' + currentUser.username : null}</h4>
       <div>
         <LoginButton setGameMode={setGameMode} />
         <SignUpButton setGameMode={setGameMode} />

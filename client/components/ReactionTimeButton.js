@@ -12,7 +12,7 @@ const ReactionTimeButton = ({ setGameMode }) => {
     <button onClick={handleClick} className="ReactionTimeButton">
       <strong className="cardTitle">Reaction Time</strong>
       <div className="fontAwesome">
-        <i class="fa-solid fa-bolt fa-2xl"></i>
+        <i className="fa-solid fa-bolt fa-2xl"></i>
       </div>
 
       <p>Test your reflexes!</p>

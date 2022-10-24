@@ -11,8 +11,8 @@ const NumberMemoryButton = ({ setGameMode }) => {
   return (
     <button onClick={handleClick} className="ReactionTimeButton">
       <strong className="cardTitle">Number Memory</strong>
-      <div className='fontAwesome'>
-        <i class="fa-solid fa-list-ol fa-2xl"></i>
+      <div className="fontAwesome">
+        <i className="fa-solid fa-list-ol fa-2xl"></i>
       </div>
       <p>Test your number memory!</p>
     </button>
