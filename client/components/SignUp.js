@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const SignUp = () => {
-
   const server = axios.create({
     baseURL: 'http://localhost:3000/',
   });
@@ -10,7 +9,6 @@ const SignUp = () => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
 
   const handleUsernameInput = (e) => {
     e.preventDefault();
@@ -43,7 +41,6 @@ const SignUp = () => {
       });
   }
 
-
   const handleClick = (e) => {
     e.preventDefault();
     navigate('/signUp');
@@ -51,40 +48,37 @@ const SignUp = () => {
   };
 
   return (
-    <div className="SignUp">
+    <div className='SignUp'>
       <h3>Sign up here!</h3>
       <form>
-        <>
-          <label htmlFor="email">Email: </label>
-          <input
-            onChange={handleEmailInput}
-            id="email"
-            name="email"
-            type="text"
-            required="required"
-          ></input>
-        </>
-        <>
-          <label htmlFor="username">Username: </label>
-          <input
-            onChange={handleUsernameInput}
-            id="username"
-            name="username"
-            type="text"
-            required="required"
-          ></input>
-        </>
-        <>
-          <label htmlFor="password">Password: </label>
-          <input
-            onChange={handlePasswordInput}
-            id="password"
-            name="password"
-            type="password"
-            required="required"
-          ></input>
-        </>
-        <input onClick={submitForm} type="button" value='submit'/>
+        <label htmlFor='email'>Email: </label>
+        <input
+          onChange={handleEmailInput}
+          id='emailInput'
+          name='email'
+          type='text'
+          required='required'
+        ></input>
+
+        <label htmlFor='username'>Username: </label>
+        <input
+          onChange={handleUsernameInput}
+          id='username'
+          name='username'
+          type='text'
+          required='required'
+        ></input>
+
+        <label htmlFor='password'>Password: </label>
+        <input
+          onChange={handlePasswordInput}
+          id='password'
+          name='password'
+          type='password'
+          required='required'
+        ></input>
+
+        <input onClick={submitForm} type='button' value='submit' />
       </form>
     </div>
   );
@@ -94,4 +88,3 @@ let formData = document.querySelector('#form');
 // console.log(formData)
 
 export default SignUp;
-

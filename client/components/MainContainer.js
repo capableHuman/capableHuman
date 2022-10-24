@@ -27,7 +27,7 @@ const MainContainer = () => {
           element={
             <>
               <Navbar />
-              <MainDisplay gameMode={gameMode} currentUser={currentUser}/>
+              <MainDisplay gameMode={gameMode} setCurrentUser={setCurrentUser} currentUser={currentUser}/>
               <StatsContainer />
             </>
           }

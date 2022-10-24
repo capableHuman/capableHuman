@@ -5,6 +5,8 @@ const ReactionTimeGame = ({
   setGameStarted,
   currentSpeedScore,
   setCurrentSpeedScore,
+  currentUser,
+  setCurrentUser,
 }) => {
   const [clickable, setClickable] = useState(false);
   const [timerValue, setTimerValue] = useState(0);
@@ -26,9 +28,14 @@ const ReactionTimeGame = ({
   };
 
   const buttonStyles = {
-    backgroundColor: gameStarted ? 'green' : 'red',
+    backgroundColor: gameStarted ? 'green' : '#E41B17',
     width: '100%',
     height: '100%',
+  };
+
+  const h1Styles = {
+    backgroundColor: gameStarted ? 'green' : '#E41B17',
+    color: 'white',
   };
 
   // const toggleClickable = (clickable) => {
@@ -63,17 +70,18 @@ const ReactionTimeGame = ({
 
   //  if clickable is true, display a green button that says click me!
   //   - this button should have a
+  //     https://encycolorpedia.com/00d024
   return (
     <>
       {gameStarted ? (
         <button onClick={getTime} style={buttonStyles}>
-          <h1>Click Now!</h1>
+          <h1 style={h1Styles}>Click Now!</h1>
         </button>
       ) : (
         <>
           <button style={buttonStyles} onClick={startGame}>
-            <h1>Reaction Time Game</h1>
-            <p>
+            <h1 style={h1Styles}>Reaction Time Game</h1>
+            <p className='red'>
               Click to start! When red box turns green, click as fast as you can
             </p>
           </button>
